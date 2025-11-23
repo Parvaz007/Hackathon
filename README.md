@@ -37,17 +37,17 @@ Built with **Spring Boot**, **Ollama (local AI)**, and caffine.
 
 ---
 
-### Screenshots
-### LOGIN
+### SCREENSHOTS
+#### LOGIN
 <img src="screenshot/Screenshot 2025-11-23 110051.png" alt="Login" width="100%"/> 
 
-### CREDITS
+#### CREDITS
 <img src="screenshot/Screenshot 2025-11-23 110247.png" alt="Credits" width="100%"/>
 
-### BREAKDOWN
+#### BREAKDOWN
 <img src="screenshot/Screenshot 2025-11-23 110922.png" alt="Weak Topics" width="100%"/> 
 
-### AI-POWERED STUDY PLAN
+#### AI-POWERED STUDY PLAN
 <img src="screenshot/Screenshot 2025-11-23 111214.png" alt="Study Plan" width="100%"/>
 
 
