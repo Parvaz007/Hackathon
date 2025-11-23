@@ -38,17 +38,36 @@ Built with **Spring Boot**, **Ollama (local AI)**, and caffine.
 ---
 
 ### Screenshots
+### LOGIN
+<img src="screenshot/Screenshot 2025-11-23 110051.png" alt="Login" width="100%"/> 
 
-<img src="screenshots/login.png" alt="Login" width="49%"/> <img src="screenshots/add-exam.png" alt="Add Exam" width="49%"/>
-<img src="screenshots/weak-topics.png" alt="Weak Topics" width="49%"/> <img src="screenshots/study-plan.png" alt="Study Plan" width="49%"/>
-<img src="screenshots/credits.png" alt="Credits" width="100%"/>
+### CREDITS
+<img src="screenshot/Screenshot 2025-11-23 110247.png" alt="Credits" width="100%"/>
+
+### BREAKDOWN
+<img src="screenshot/Screenshot 2025-11-23 110922.png" alt="Weak Topics" width="100%"/> 
+
+### AI-POWERED STUDY PLAN
+<img src="screenshot/Screenshot 2025-11-23 111214.png" alt="Study Plan" width="100%"/>
+
 
 ---
 
 ### How to Run Locally
 
-#### 1. Start Ollama + Model
 ```bash
-# Install Ollama: https://ollama.com/download
+# 1. Clone the repository
+https://github.com/Parvaz007/Hackathon.git
+cd H4akathon
+
+# 2. Start Ollama + the fast AI model (runs locally, no internet needed after download)
 ollama pull gemma2:2b
-ollama serve
+ollama run gemma2:2b "hello"
+# Keep this terminal running (or run in background)
+
+# 3. Start the Spring Boot backend
+cd backend
+./mvnw spring-boot:run
+# On Windows, use: mvnw spring-boot:run
+
+# 4.Start the frontend in VS-code via live-server extension
