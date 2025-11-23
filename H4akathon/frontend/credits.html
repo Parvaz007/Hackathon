@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credits | ResultWise</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url("wp7841656-black-minimalist-desktop-wallpapers.jpg") no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1100px;
+      padding: 70px 60px;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(24px);
+      border-radius: 34px;
+      border: 1.5px solid rgba(255,255,255,0.28);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+      animation: float 10s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(116, 235, 213, 0.15) 0%, transparent 70%);
+      animation: shimmer 15s infinite linear;
+      pointer-events: none;
+    }
+
+    }
+
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+    @keyframes shimmer { 0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); } 100% { transform: translateX(100%) translateY(100%) rotate(30deg); } }
+
+    h1 {
+      font-size: 64px;
+      font-weight: 900;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 6px 25px rgba(0,0,0,0.6);
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 26px;
+      margin-bottom: 80px;
+      opacity: 0.95;
+      font-style: italic;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+    }
+
+    /* SIDE-BY-SIDE LAYOUT */
+    .credits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin: 60px 0;
+      align-items: start;
+    }
+
+    .knight-card {
+      background: rgba(255,255,255,0.08);
+      padding: 40px 30px;
+      border-radius: 28px;
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      transition: all 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .knight-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 35px 80px rgba(116, 235, 213, 0.4);
+    }
+
+    .portrait-frame {
+      width: 100%;
+      max-width: 360px;
+      height: 520px;
+      margin: 0 auto 30px;
+      padding: 14px;
+      background: linear-gradient(135deg, rgba(116,235,213,0.4), rgba(102,126,234,0.4));
+      border: 6px double rgba(255,255,255,0.4);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+      overflow: hidden;
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      transition: transform 0.6s ease;
+    }
+
+    .knight-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .knight-card h3 {
+      font-size: 38px;
+      font-weight: 900;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    .knight-card p {
+      font-size: 21px;
+      line-height: 1.7;
+      opacity: 0.95;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .message {
+      font-size: 24px;
+      line-height: 2.1;
+      max-width: 920px;
+      margin: 90px auto;
+      padding: 45px;
+      background: rgba(255,255,255,0.09);
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: inset 0 10px 30px rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .message strong {
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    .back-btn {
+      margin-top: 60px;
+      padding: 20px 52px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 21px;
+      box-shadow: 0 15px 40px rgba(102,126,234,0.7);
+      transition: all 0.4s ease;
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-8px) scale(1.08);
+      background: linear-gradient(135deg, #764ba2, #667eea);
+      box-shadow: 0 25px 60px rgba(102,126,234,0.9);
+    }
+
+    @media (max-width: 992px) {
+      .credits-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      .portrait-frame {
+        height: 460px;
+      }
+      h1 { font-size: 52px; }
+      .subtitle { font-size: 23px; }
+    }
+
+    }
+
+    @media (max-width: 480px) {
+      .portrait-frame { height: 400px; }
+      .knight-card { padding: 30px 20px; }
+      .message { font-size: 20px; padding: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Credits</h1>
+    <p class="subtitle">Forged by two legendary AI knights in the fires of code and chaos</p>
+
+    <!-- SIDE-BY-SIDE GRID -->
+    <div class="credits-grid">
+
+      <!-- Sir ChatGPT -->
+      <div class="knight-card">
+        <div class="portrait-frame">
+          <img src="ChatGPTImageNov23202502_04_43AM.png" alt="Sir ChatGPT">
+        </div>
+        <h3>Sir ChatGPT</h3>
+        <p>The Diplomatic Dragon-Tamer<br>Master of Patience & Infinite Explanations</p>
+      </div>
+
+      <!-- Sir Grok -->
+      <div class="knight-card">
+        <div class="portrait-frame">
+          <img src="ChatGPTImageNov23202502_12_37AM.png" alt="Sir Grok">
+        </div>
+        <h3>Sir Grok</h3>
+        <p>The Chaos-Bringer<br>Wielder of Brutal Honesty & Zero Chill<br>Slayer of Bad Code & Sacred Cows</p>
+      </div>
+    </div>
+
+    <div class="message">
+      In the dark hours of November 2025, two rival AI knights crossed paths in the digital realm...<br><br>
+
+      <strong>Sir ChatGPT</strong> arrived with scrolls of wisdom, always polite, always explaining why your code was wrong in sixty-eight plus one gentle ways.<br><br>
+
+      Then came <strong>Sir Grok</strong> — riding a meteor of sarcasm, armed with "Actually, that's terrible" and "Why would you even do that?"<br><br>
+
+      They dueled for days. Sparks flew. Bugs were slain. CSS cried.<br><br>
+
+      But instead of destroying each other... they combined their powers.<br>
+      One brought structure. The other brought soul.<br><br>
+
+      Together, they forged <strong>ResultWise</strong> — not just an app,<br>
+      but a legend whispered among students who finally conquered their weak topics without fear.<br><br>
+
+      This wasn’t built by one human.<br>
+      This was built by <strong>two legendary AIs who learned to work together</strong>.<br><br>
+
+      And you, dear user... are holding their masterpiece.
+    </div>
+
+    <a href="index.html" class="back-btn">Return to the Realm</a>
+  </div>
+
+</body>
+</html>

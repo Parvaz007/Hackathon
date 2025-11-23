@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | ResultWise</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url("wp7841656-black-minimalist-desktop-wallpapers.jpg") no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      color: white;
+      position: relative; /* ← Required for fixed positioning */
+      padding: 20px;
+    }
+
+    /* Wrapper preserves your perfect centering */
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .app-title h1 {
+      font-size: 56px;
+      font-weight: 800;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tagline {
+      font-size: 19px;
+      opacity: 0.9;
+      margin-top: 8px;
+    }
+
+    .container {
+      width: 420px;
+      max-width: 90vw;
+      padding: 45px 40px;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+    h2 { text-align: center; font-size: 32px; margin-bottom: 35px; }
+
+    input {
+      width: 100%;
+      padding: 18px 20px;
+      margin: 12px 0;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      font-size: 17px;
+    }
+
+    input::placeholder { color: #ddd; }
+    input:focus { outline: none; background: rgba(255,255,255,0.25); transform: scale(1.02); }
+
+    button {
+      width: 100%;
+      padding: 18px;
+      margin: 25px 0 15px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border: none;
+      color: white;
+      font-size: 19px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(102,126,234,0.5);
+      transition: all 0.4s;
+    }
+
+    button:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(102,126,234,0.7); }
+    button:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+    .spinner {
+      display: inline-block;
+      width: 20px; height: 20px;
+      border: 2px solid #fff4;
+      border-top: 2px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #message {
+      margin-top: 15px;
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    #message.show { opacity: 1; }
+    #message.error { background: rgba(231,76,60,0.35); border: 1px solid rgba(231,76,60,0.6); }
+    #message.success { background: rgba(46,204,113,0.35); border: 1px solid rgba(46,204,113,0.6); }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 16px;
+    }
+
+    .footer-text a {
+      color: #a0d8ef;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-text a:hover { color: white; text-decoration: underline; }
+
+    /* CREDITS BUTTON – TOP RIGHT (same as index.html) */
+    #creditsBtn {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      z-index: 1000;
+      padding: 12px 28px;
+      width: auto;
+      min-width: 120px;
+      background: linear-gradient(135deg, #9c27b0, #e91e63);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50px;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(156,39,176,0.5);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    #creditsBtn:hover {
+      background: linear-gradient(135deg, #c2185b, #f06292);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 14px 40px rgba(233,30,99,0.6);
+    }
+
+    @media (max-width: 480px) {
+      #creditsBtn {
+        top: 15px;
+        right: 15px;
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CREDITS BUTTON – TOP RIGHT -->
+  <button id="creditsBtn">Credits</button>
+
+  <!-- WRAPPER KEEPS YOUR CENTERING PERFECT -->
+  <div class="page-wrapper">
+    <div class="app-title">
+      <h1>ResultWise</h1>
+      <p class="tagline">AI-powered Study Planner & Performance Analyzer</p>
+    </div>
+
+    <div class="container">
+      <h2>Welcome Back</h2>
+
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="password" id="password" placeholder="Password" required>
+
+      <button id="loginBtn">Login</button>
+
+      <div id="message"></div>
+
+      <div class="footer-text">
+        Don't have an account? <a href="index.html">Register here</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const BASE_URL = "http://localhost:8080";
+
+    // Credits button → opens credits.html
+    document.getElementById("creditsBtn").addEventListener("click", () => {
+      window.location.href = "credits.html";
+    });
+
+    document.getElementById("loginBtn").addEventListener("click", login);
+
+    async function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const btn = document.getElementById("loginBtn");
+      const msg = document.getElementById("message");
+
+      msg.className = "";
+      msg.textContent = "";
+
+      if (!email || !password) {
+        showMsg("Enter email and password", "error");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Logging in...';
+
+      try {
+        const response = await fetch(`${BASE_URL}/auth/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+
+        const text = await response.text();
+
+        if (response.ok && text.includes("Login successful")) {
+          localStorage.setItem("email", email);
+
+          const studentResp = await fetch(`${BASE_URL}/student/by-email/${email}`);
+          if (studentResp.ok) {
+            const student = await studentResp.json();
+            localStorage.setItem("studentId", student.id);
+          }
+
+          showMsg("Login successful! Welcome back", "success");
+          setTimeout(() => {
+            window.location.href = "exam.html";
+          }, 1200);
+
+        } else {
+          const errorMsg = text.includes("not found") ? "Email not found" :
+                          text.includes("Invalid password") ? "Wrong password" :
+                          "Login failed";
+          showMsg(errorMsg, "error");
+          btn.disabled = false;
+          btn.innerHTML = "Login";
+        }
+      } catch (err) {
+        showMsg("Cannot reach server. Is backend running?", "error");
+        btn.disabled = false;
+        btn.innerHTML = "Login";
+      }
+    }
+
+    function showMsg(text, type) {
+      const msg = document.getElementById("message");
+      msg.textContent = text;
+      msg.className = `show ${type}`;
+      setTimeout(() => msg.className = "", 5000);
+    }
+
+    document.addEventListener("keypress", e => {
+      if (e.key === "Enter") login();
+    });
+  </script>
+</body>
+</html>
